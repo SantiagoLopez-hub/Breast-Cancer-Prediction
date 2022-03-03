@@ -16,3 +16,6 @@ def classifier():
 
     # Create a classification model
     model = RandomForestClassifier()
+
+    # Train model
+    model.fit(X_train, y_train)
