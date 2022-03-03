@@ -1,3 +1,4 @@
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_breast_cancer
 
@@ -12,3 +13,6 @@ def classifier():
         data.target,
         test_size=0.2
     )
+
+    # Create a classification model
+    model = RandomForestClassifier()
