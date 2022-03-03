@@ -25,3 +25,7 @@ def classifier():
     model_predictions = model.predict(X_test)
 
     print(numpy.mean(model_predictions == y_test))
+
+
+if __name__ == '__main__':
+    classifier()
