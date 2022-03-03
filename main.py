@@ -1,6 +1,7 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_breast_cancer
+import matplotlib.pyplot as plt
 import numpy
 
 
@@ -24,7 +25,21 @@ def classifier():
     # Make predictions
     model_predictions = model.predict(X_test)
 
-    print(numpy.mean(model_predictions == y_test))
+    plt.figure(figsize=(10, 5))
+
+    plt.subplot(121)
+    plt.title('Training data')
+    plt.plot(X_train)
+
+    plt.subplot(122)
+    plt.title('Testing data')
+    plt.plot(X_test)
+
+    accuracy = numpy.mean((model_predictions == y_test) * 100).round(2).item()
+    plt.suptitle('Breast Cancer Predictions (Classification)\nAccuracy: ' +
+                 repr(accuracy) +
+                 '%')
+    plt.show()
 
 
 if __name__ == '__main__':
