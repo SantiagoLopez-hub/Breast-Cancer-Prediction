@@ -25,16 +25,20 @@ def classifier():
     # Make predictions
     model_predictions = model.predict(X_test)
 
+    # Set sizes
     plt.figure(figsize=(10, 5))
 
+    # First plot (Training data)
     plt.subplot(121)
     plt.title('Training data')
     plt.plot(X_train)
 
+    # Second plot (Testing data)
     plt.subplot(122)
     plt.title('Testing data')
     plt.plot(X_test)
 
+    # Display accuracy
     accuracy = numpy.mean((model_predictions == y_test) * 100).round(2).item()
     plt.suptitle('Breast Cancer Predictions (Classification)\nAccuracy: ' +
                  repr(accuracy) +
